@@ -1,4 +1,266 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-02-04T20:28:18+02:00</updated><id>/feed.xml</id><title type="html">Fail Until You Win</title><subtitle>Fail Until You Win - The adventures of two researchers who like to play with stuff and fail all the way to success.</subtitle><entry><title type="html">Welcome to our blog!</title><link href="/first/intro/project/2019/02/04/welcome-to-our-blog.html" rel="alternate" type="text/html" title="Welcome to our blog!" /><published>2019-02-04T19:15:16+02:00</published><updated>2019-02-04T19:15:16+02:00</updated><id>/first/intro/project/2019/02/04/welcome-to-our-blog</id><content type="html" xml:base="/first/intro/project/2019/02/04/welcome-to-our-blog.html">&lt;p&gt;If we had to define ourserlves in a few sentences, we would say the following:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-01T20:47:08+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fail Until You Win</title><subtitle>Fail Until You Win - The adventures of two researchers who like to play with stuff and fail all the way to success.</subtitle><entry><title type="html">Using an Amazon Dash Button with Any.Do</title><link href="http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo.html" rel="alternate" type="text/html" title="Using an Amazon Dash Button with Any.Do" /><published>2019-03-31T20:30:00+03:00</published><updated>2019-03-31T20:30:00+03:00</updated><id>http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo</id><content type="html" xml:base="http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo.html">&lt;h3 id=&quot;preface-by-inbar&quot;&gt;«Preface by Inbar»&lt;/h3&gt;
+
+&lt;p&gt;Every now and then, when I’m sitting on the toilet, I realize that I’m using the last roll of toilet paper and I should replenish the stock in the bathroom cabinet drawer next to me. But 90% of those times I forget it 20 seconds later. I wanted to find a solution that would enable me to add it to my To-Do list - I’m using &lt;a href=&quot;https://www.any.do/&quot;&gt;Any.Do&lt;/a&gt; - so I don’t forget.&lt;/p&gt;
+
+&lt;p&gt;I remembered that a while back, Amazon had released the &lt;a href=&quot;https://www.digitaltrends.com/home/what-is-an-amazon-dash-button/&quot;&gt;Amazon Dash Button&lt;/a&gt; (which has, since then, been replaced by the &lt;a href=&quot;https://www.amazon.com/b?ie=UTF8&amp;amp;node=17729534011&quot;&gt;Virtual Dash Button&lt;/a&gt;) and I also remembered that it was rather quickly hacked to do other things. And so I decided that I would hack an Amazon Dash Button to add “Replenish toilet paper” to my To-Do list.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-problems-i-faced&quot;&gt;The problems I faced:&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The hacks I remembered were either performed on an earlier version of the button, or involved a teardown and hacking the chip itself.&lt;/li&gt;
+  &lt;li&gt;Any.Do doesn’t have a public API, so even if I got over the first problem, I’d still be stuck.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;the-solution-i-chose&quot;&gt;The solution I chose:&lt;/h4&gt;
+
+&lt;p&gt;Find a way to make use of Alexa, which has Any.Do integration.&lt;/p&gt;
+
+&lt;p&gt;“How,” you ask?&lt;/p&gt;
+
+&lt;p&gt;By &lt;em&gt;telling&lt;/em&gt; Alexa to “add Replenish toilet paper to my to-do list,” of course. How else?&lt;/p&gt;
+
+&lt;h3 id=&quot;preface-by-inbar-1&quot;&gt;«/Preface by Inbar»&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h3&gt;&lt;nbsp&gt;&lt;/nbsp&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;version-1-use-a-mini-router-as-an-access-point&quot;&gt;Version 1: Use a mini-router as an access-point&lt;/h3&gt;
+
+&lt;p&gt;We wanted to use as many off-the-shelf parts, and to make this as little sophisticated as possible. One of the principles that we like to follow is to &lt;strong&gt;&lt;em&gt;try to only add one degree of difficulty at a time&lt;/em&gt;&lt;/strong&gt;. It’s particularly important when you’re doing something for the first time. If the objective is to learn something new, and time is not of the essence, then there’s no reason to rush and try to take three steps at a time.&lt;/p&gt;
+
+&lt;h4 id=&quot;internet&quot;&gt;Internet&lt;/h4&gt;
+
+&lt;p&gt;Our usual meeting place is a nice coffee place in Tel-Aviv, so an Internet connection was not a problem. However, we needed a WiFi network that we can own and play with its configuration, so just using Arcaffe’s Internet connection wasn’t going to work. So what do we do? Enter &lt;a href=&quot;https://docs.gl-inet.com/en/2/hardware/ar300m/&quot;&gt;GL-iNet GL-AR300M&lt;/a&gt; - a tiny, portable router with WiFi, Ethernet and pre-installed open-wrt.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/GL-AR300M.jpg&quot; alt=&quot;Mini-router&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We used the GL-AR300M as a router: The WAN came from Arcaffe’s WiFi network, and our set-up and experiments were all performed on the NAT-ted LAN over the GL-AR300M’s WiFi (Yes, it can do both at the same time!) That way we had a local, fully controlled WiFi that also has Internet connection.&lt;/p&gt;
+
+&lt;h4 id=&quot;working-platform&quot;&gt;Working platform&lt;/h4&gt;
+
+&lt;p&gt;We chose the RaspberryPi as our working platform early on, because of the simplicity of using it with an external speaker in order to give voice commands to Alexa. You can read more about such a setup &lt;a href=&quot;https://www.dexterindustries.com/howto/make-your-raspberry-pi-speak/&quot;&gt;here&lt;/a&gt;. It is also a full-fledged linux server, and it’s very easy to play around with things.&lt;/p&gt;
+
+&lt;h4 id=&quot;connecting-the-amazon-dash-button&quot;&gt;Connecting the Amazon Dash Button&lt;/h4&gt;
+
+&lt;p&gt;Setting up the Amazon Dash Button (ADB from now on) involves connecting it to a wireless network, and then assigning it a product. We will only take the first step, and stop right after it. You can read more on this &lt;a href=&quot;https://www.digikey.com/en/maker/blogs/2017/amazon-dash-hack-connecting-to-your-ifttt-account&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once your ADB is connected to the Internet, it’s time to see what happens when you press the button.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pi@raspberrypi:~ $ sudo tcpdump -i wlan0 -w dash.pcap&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Load the pcap file into Wireshark to view:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/capture_legend.png&quot; alt=&quot;Dash Button traffic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s what’s going on:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ADB hops on the Wifi network [pkt 1-5]&lt;/li&gt;
+  &lt;li&gt;ADB requests an IP address using DHCP [pkt 6-9]&lt;/li&gt;
+  &lt;li&gt;ADB looks for the gateway and DNS [pkt 10-11]&lt;/li&gt;
+  &lt;li&gt;ADB asks for the address for &lt;em&gt;dash-button-na.amazon.com&lt;/em&gt; [pkt 12-13]&lt;/li&gt;
+  &lt;li&gt;ADB starts a TLS session with &lt;em&gt;dash-button-na.amazon.com&lt;/em&gt; [pkt 14-17]&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Looking at the capture file, you can see the following interesting pieces of information:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Pkt 1: The MAC address for the Amazon Dash Button is 74:c2:46:b4:89:6a&lt;/li&gt;
+  &lt;li&gt;Pkt 12: The ADB is trying to access an Amazon server at &lt;em&gt;dash-button-na.amazon.com&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As a rudimentary proof of concept, we port-forwarded all UDP port 67 requests on the GL-AR300M (the DHCP requests) to our RaspberryPi at UDP port 9000, and wrote a very simple Python server, listening on port 9000. Once an incoming connection was detected, it meant the ADB was hopping on the network and asking for an IP address. The script then used [espeak][espeaklink] to give Alexa the voice command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import socket
+import subprocess
+
+UDP_IP = &quot;0.0.0.0&quot;
+UDP_PORT = 9000
+
+sock = socket.socket(socket.AF_INET, # Internet
+                     socket.SOCK_DGRAM) # UDP
+sock.bind((UDP_IP, UDP_PORT))
+
+counter = 0
+
+while True:
+    data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+    if counter == 2:
+        print &quot;received message:&quot;, data
+        cmd = &quot;espeak -s 135 -v en-us \&quot;Alexa. . . . Add replenish toilet paper to my to do list.\&quot;&quot;
+        ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        output = ps.communicate()[0]
+        print output
+        counter = 0
+    else:
+        print &quot;Else&quot;
+        counter = counter + 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And the resulting setup looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/Setup_with_GL-AR300M.jpg&quot; alt=&quot;Version 1 setup&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That was some very ugly work there, we’re the first to admit, but it worked. Still, we felt like we needed to shower after this…&lt;/p&gt;
+
+&lt;p&gt;Ugly is nice for PoC but not something you’ll want to show off in a blog post or, if you’re lucky, get featured on &lt;a href=&quot;https://hackaday.com/blog/&quot;&gt;Hackaday&lt;/a&gt;. It was time to start making things look more decent (and dear Lord, avoid shell commands…)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-1&quot;&gt;&lt;nbsp&gt;&lt;/nbsp&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;version-2-drop-the-mini-router-do-it-all-off-the-raspi&quot;&gt;Version 2: Drop the mini-router, do it all off the RasPi&lt;/h3&gt;
+
+&lt;p&gt;It was nice to prototype and get it running over the GL-AR300M, but once the setup was up and running (&lt;em&gt;and the achievement was unlocked&lt;/em&gt;), we started thinking about optimizing. Since the RaspberryPi 3 model B has its own built-in WiFi adapter, why not just use it as both the access point and router?&lt;/p&gt;
+
+&lt;p&gt;We followed &lt;a href=&quot;https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md&quot;&gt;this guide&lt;/a&gt; to set up the RaspberryPi as a Wireless Access Point, and got rid of the GL-AR300M. Once again we redirected &lt;em&gt;dash-button-na.amazon.com&lt;/em&gt; to ourselves.&lt;/p&gt;
+
+&lt;p&gt;Now, however, there was no need to use port-forwarding, and we could try to catch the ADB trying to call home - that would allow us to co-exist on the same network with other devices. We upgraded the script to listen on port 443 (The SSL port) and catch the connection:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import socket
+import subprocess
+
+TCP_IP = &quot;0.0.0.0&quot;
+TCP_PORT = 443
+
+sock = socket.socket(socket.AF_INET, # Internet
+                     socket.SOCK_STREAM) # TCP
+sock.bind((TCP_IP, TCP_PORT))
+sock.listen(5)
+counter = 0
+client_socket, address = sock.accept()
+while True:
+    data, addr = client_socket.recvfrom(1024) # buffer size is 1024 bytes
+    if counter == 2:
+        print &quot;received message:&quot;, data
+        cmd = &quot;espeak -s 135 -v en-us \&quot;Alexa. . . . Add replenish toilet paper to my to do list.\&quot;&quot;
+        ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        output = ps.communicate()[0]
+        print output
+        counter = 0
+    else:
+        print &quot;Else&quot;
+        counter = counter + 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You’ll notice a counter there. This is because the ADB doesn’t give up easily and will try calling home three times before giving up. We only wanted to react once, so we were waiting for the third and last attempt.&lt;/p&gt;
+
+&lt;p&gt;The setup was getting thinner:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/Setup_with_RasPi_2.jpg&quot; alt=&quot;Version 2 setup&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This was better, no doubt, but the main problem was that this setup could not tell who was trying to access Amazon. If we wanted to use more than one ADB in our setup, we wouldn’t be able to tell them apart &lt;em&gt;using this script&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It was time to get surgical.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;-2&quot;&gt;&lt;nbsp&gt;&lt;/nbsp&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;version-3-recorded-voice-and-dnsmasq-scripts&quot;&gt;Version 3: Recorded voice and DNSMASQ scripts&lt;/h3&gt;
+
+&lt;p&gt;Using espeak was nice but the quality of the speech left much to be desired. We needed a clear pronunciation that Alexa would understand every time. Since both of us are using MacBooks, we decided to use Apple’s much better version of text-to-speech. The only remaining question was which voice to use.&lt;/p&gt;
+
+&lt;p&gt;Here are all the English voices that OSX’s &lt;em&gt;say&lt;/em&gt; supports:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;localhost:~ inbar$ say -v ? | grep &quot;en_&quot;
+Alex        en_US    # Most people recognize me by my voice.
+Daniel      en_GB    # Hello, my name is Daniel. I am a British-English voice.
+Fred        en_US    # I sure like being inside this fancy computer
+Karen       en_AU    # Hello, my name is Karen. I am an Australian-English voice.
+Moira       en_IE    # Hello, my name is Moira. I am an Irish-English voice.
+Samantha    en_US    # Hello, my name is Samantha. I am an American-English voice.
+Tessa       en_ZA    # Hello, my name is Tessa. I am a South African-English voice.
+Veena       en_IN    # Hello, my name is Veena. I am an Indian-English voice.
+Victoria    en_US    # Isn't it nice to have a computer that will talk to you?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Some trial and error determined that &lt;em&gt;Samantha&lt;/em&gt; had the clearest pronunciation of the voice command, but ironically she was mispronouncing the name Alexa, which would have been pointless. A small phonetic workaround was used, and now we needed to dump the output to an AIFF file. We used a slightly-slower-than-default word rate, in order to make everything nice and clear:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;localhost:~ inbar$ say -v Samantha -r 135 -o &quot;replenishtoiletpaper.aiff&quot; &quot;Ah-lexa. . . . Add replenish toilet paper to my to do list.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That took care of the voice command. Now it was time for multi-device support.&lt;/p&gt;
+
+&lt;p&gt;After some Googling, we found a blog post by Jan-Piet Mens, titled “&lt;a href=&quot;https://jpmens.net/2013/10/21/tracking-dhcp-leases-with-dnsmasq/&quot;&gt;Tracking DHCP leases (dnsmasq)&lt;/a&gt;” - turns out that dnsmasq will allow you to execute an external script whenever a DHCP event occurs. That was great - we would be able to look at the MAC address, know which ADB is calling us (in case there was more than one) and react accordingly.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Credit: Script based on Jan-Piet Mens' blog post:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# https://jpmens.net/2013/10/21/tracking-dhcp-leases-with-dnsmasq/&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Log file location (for debugging or tracking)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;LOGFILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/pi/AmazonDash/dns_events.log
+
+&lt;span class=&quot;c&quot;&gt;# Define MAC addresses for participating devices&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;dash_ToiletPaper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;74:c2:46:b4:89:6a&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;dash_TellEzraHi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;74:c2:46:4c:29:07&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Extract arguments&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;mac&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mac&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;ip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ip&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Logging - Good for debugging and determining MAC addresses of new devices&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Op: &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, MAC: &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mac&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, IP: &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ip&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, hostname: (&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;- &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LOGFILE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Do not respond to DHCP Release events (op = &quot;del&quot;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;del&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;del operation ignored&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LOGFILE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Look for known devices and act accordingly&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mac&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;dash_ToiletPaper&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;omxplayer &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt; /home/pi/AmazonDash/replenishtoiletpaper.aiff
+  &lt;span class=&quot;nv&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Toilet Paper&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mac&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;dash_TellEzraHi&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;espeak &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 135 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; en-us &lt;span class=&quot;s2&quot;&gt;&quot;Hi Ezra. . . . This is working great!&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ezra&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unknown device&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LOGFILE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, this is the first version where Inbar used espeak to show Ezra that the feature works. Naturally, there would be another AIFF file there ;-)&lt;/p&gt;
+
+&lt;p&gt;And so the final setup was now working, and this is what it looked like:&lt;/p&gt;
+
+&lt;iframe width=&quot;826&quot; height=&quot;465&quot; src=&quot;https://www.youtube.com/embed/xJCstaNtBqk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;And here’s us, working on the project:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/Working_on_the_first_post.jpg&quot; alt=&quot;Working on the setup&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;-3&quot;&gt;&lt;nbsp&gt;&lt;/nbsp&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;epilogue--next-steps&quot;&gt;Epilogue / Next steps&lt;/h3&gt;
+
+&lt;p&gt;The funniest thing about this all, was Ezra’s wife’s reaction when we demonstrated this marvelous feat:&lt;/p&gt;
+
+&lt;p&gt;“Seriously? You are using &lt;strong&gt;three&lt;/strong&gt; different devices to remind you that?!?”&lt;/p&gt;
+
+&lt;p&gt;Luckily for Ezra, he’s already married so she can’t leave him for this.&lt;/p&gt;
+
+&lt;p&gt;This was a great setup and way past the MVP stage, and we decided to publish it. But there are more things that we could do. At the top of our list is switching  to using Bluetooth in order to wirelessly connect to the external speaker. But we’ll see.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;-4&quot;&gt;&lt;nbsp&gt;&lt;/nbsp&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;similar-projects-and-references&quot;&gt;Similar projects and references&lt;/h3&gt;
+
+&lt;p&gt;Obviously, we weren’t the first to think about this idea. Other have tried it before us. But we did this, like almost everything else you’ll read about in this blog, in order to learn a new skill to just have some good old fun.&lt;/p&gt;
+
+&lt;p&gt;Here are some similar projects and sources of information we used during the research:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/magpi/hack-amazon-dash-button-raspberry-pi/&quot;&gt;Amazon Dash Hack with Raspberry Pi and Python&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://24-7-home-security.com/hack-amazon-dash-button-make-home-automation-remote/&quot;&gt;How to hack an Amazon Dash Button to make a $5 Home Automation remote&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">«Preface by Inbar»</summary></entry><entry><title type="html">Welcome to our blog!</title><link href="http://localhost:4000/first/intro/project/2019/02/04/welcome-to-our-blog.html" rel="alternate" type="text/html" title="Welcome to our blog!" /><published>2019-02-04T19:15:16+02:00</published><updated>2019-02-04T19:15:16+02:00</updated><id>http://localhost:4000/first/intro/project/2019/02/04/welcome-to-our-blog</id><content type="html" xml:base="http://localhost:4000/first/intro/project/2019/02/04/welcome-to-our-blog.html">&lt;p&gt;If we had to define ourserlves in a few sentences, we would say the following:&lt;/p&gt;
 
 &lt;p&gt;We are VERY busy.
 We have dozens of ideas every week.&lt;/p&gt;

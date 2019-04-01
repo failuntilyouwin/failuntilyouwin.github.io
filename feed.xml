@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-01T20:47:08+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fail Until You Win</title><subtitle>Fail Until You Win - The adventures of two researchers who like to play with stuff and fail all the way to success.</subtitle><entry><title type="html">Using an Amazon Dash Button with Any.Do</title><link href="http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo.html" rel="alternate" type="text/html" title="Using an Amazon Dash Button with Any.Do" /><published>2019-03-31T20:30:00+03:00</published><updated>2019-03-31T20:30:00+03:00</updated><id>http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo</id><content type="html" xml:base="http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo.html">&lt;h3 id=&quot;preface-by-inbar&quot;&gt;«Preface by Inbar»&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-01T21:04:15+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fail Until You Win</title><subtitle>Fail Until You Win - The adventures of two researchers who like to play with stuff and fail all the way to success.</subtitle><entry><title type="html">Using an Amazon Dash Button with Any.Do</title><link href="http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo.html" rel="alternate" type="text/html" title="Using an Amazon Dash Button with Any.Do" /><published>2019-03-31T20:30:00+03:00</published><updated>2019-03-31T20:30:00+03:00</updated><id>http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo</id><content type="html" xml:base="http://localhost:4000/project/iot/2019/03/31/using-an-amazon-dash-button-with-anydo.html">&lt;h3 id=&quot;preface-by-inbar&quot;&gt;«Preface by Inbar»&lt;/h3&gt;
 
 &lt;p&gt;Every now and then, when I’m sitting on the toilet, I realize that I’m using the last roll of toilet paper and I should replenish the stock in the bathroom cabinet drawer next to me. But 90% of those times I forget it 20 seconds later. I wanted to find a solution that would enable me to add it to my To-Do list - I’m using &lt;a href=&quot;https://www.any.do/&quot;&gt;Any.Do&lt;/a&gt; - so I don’t forget.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 &lt;p&gt;Our usual meeting place is a nice coffee place in Tel-Aviv, so an Internet connection was not a problem. However, we needed a WiFi network that we can own and play with its configuration, so just using Arcaffe’s Internet connection wasn’t going to work. So what do we do? Enter &lt;a href=&quot;https://docs.gl-inet.com/en/2/hardware/ar300m/&quot;&gt;GL-iNet GL-AR300M&lt;/a&gt; - a tiny, portable router with WiFi, Ethernet and pre-installed open-wrt.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/GL-AR300M.jpg&quot; alt=&quot;Mini-router&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/GL-AR300M.jpg&quot; alt=&quot;Mini-router&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We used the GL-AR300M as a router: The WAN came from Arcaffe’s WiFi network, and our set-up and experiments were all performed on the NAT-ted LAN over the GL-AR300M’s WiFi (Yes, it can do both at the same time!) That way we had a local, fully controlled WiFi that also has Internet connection.&lt;/p&gt;
 
@@ -50,7 +50,7 @@
 
 &lt;p&gt;Load the pcap file into Wireshark to view:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/capture_legend.png&quot; alt=&quot;Dash Button traffic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/capture_legend.png&quot; alt=&quot;Dash Button traffic&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here’s what’s going on:&lt;/p&gt;
 
@@ -99,7 +99,7 @@ while True:
 
 &lt;p&gt;And the resulting setup looks like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/Setup_with_GL-AR300M.jpg&quot; alt=&quot;Version 1 setup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/Setup_with_GL-AR300M.jpg&quot; alt=&quot;Version 1 setup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;That was some very ugly work there, we’re the first to admit, but it worked. Still, we felt like we needed to shower after this…&lt;/p&gt;
 
@@ -146,7 +146,7 @@ while True:
 
 &lt;p&gt;The setup was getting thinner:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/Setup_with_RasPi_2.jpg&quot; alt=&quot;Version 2 setup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/Setup_with_RasPi_2.jpg&quot; alt=&quot;Version 2 setup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This was better, no doubt, but the main problem was that this setup could not tell who was trying to access Amazon. If we wanted to use more than one ADB in our setup, we wouldn’t be able to tell them apart &lt;em&gt;using this script&lt;/em&gt;.&lt;/p&gt;
 
@@ -233,7 +233,7 @@ Victoria    en_US    # Isn't it nice to have a computer that will talk to you?
 
 &lt;p&gt;And here’s us, working on the project:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/Working_on_the_first_post.jpg&quot; alt=&quot;Working on the setup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/Working_on_the_first_post.jpg&quot; alt=&quot;Working on the setup&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
